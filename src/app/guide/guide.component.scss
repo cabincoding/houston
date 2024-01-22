@@ -1,0 +1,201 @@
+.mat-divider {
+    width: 17.75rem;
+    border: 1px solid white;
+    margin: 0.75rem 0;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: #191919;
+}
+
+.guide {
+    height: 100%;
+    width: 100%;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem;
+
+        &-title {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        &-subtitle {
+            font-size: 1rem;
+            font-style: italic;
+            font-weight: 200;
+            color: white;
+        }
+    }
+}
+
+.map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    > img {
+        height: auto;
+        width: 40rem;
+    }
+
+    &-caption {
+        font-size: 0.8rem;
+        font-style: italic;
+        font-weight: 300;
+        color: white;
+        width: 30rem;
+        line-height: 2rem;
+        text-align: center;
+
+    }
+}
+
+.characters, .countries, .terminology, .rules-of-magic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 3rem 0 0 0;
+}
+
+.characters {
+    background-color: black;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        margin: 0 10rem;
+
+        &-title {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        &-body {
+            color: white;
+            margin: 1.5rem 0;
+
+            &-name {
+                font-size: 1.25rem;
+                font-style: italic;
+            }
+
+            &-bio {
+                line-height: 2rem;
+            }
+        }
+    }
+}
+
+.countries {
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        margin: 0 10rem;
+
+        &-title {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        &-desc {
+            color: white;
+            line-height: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        &-body {
+            margin: 1.5rem 0;
+            color: white;
+
+            &-name {
+                font-size: 1.25rem;
+                font-style: italic;
+            }
+
+            &-description {
+                line-height: 2rem;
+            }
+        }
+    }
+}
+
+.terminology {
+    background-color: black;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        margin: 0 10rem;
+
+        &-title {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        &-body {
+            color: white;
+            margin: 1.5rem 0;
+
+            &-term {
+                font-size: 1.25rem;
+                font-style: italic;
+            }
+
+            &-description {
+                line-height: 2rem;
+            }
+        }
+    }
+}
+
+.rules-of-magic {
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        margin: 0 10rem;
+
+        &-title {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        &-body {
+            color: white;
+            margin: 1.5rem 0;
+            line-height: 2rem;
+            font-style: italic;
+            font-size: 1rem;
+            font-weight: 200;
+        }
+    }
+}

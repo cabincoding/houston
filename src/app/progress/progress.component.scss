@@ -1,0 +1,36 @@
+.mat-divider {
+    width: 17.75rem;
+    border: 1px solid white;
+    margin: 0.75rem 0;
+}
+
+.container {
+    background-color: black;
+}
+
+.progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+    &-title {
+        font-size: 2.5rem;
+        color: white;
+    }
+
+    &-projects {
+        border: 1px dashed #393939;
+        height: 20rem;
+        width: 100%;
+    }
+
+    &-statement {
+        font-style: italic;
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: white;
+        margin-top: 1rem;
+    }
+}

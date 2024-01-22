@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="hero">
+        <div class="hero-container">
+            <div class="hero-container-photo">
+                <img src="../../assets/photos/author.png" alt="image of handsome bearded author in blue suit">
+            </div>
+            <div class="hero-container-titlegroup">
+                <div class="hero-container-titlegroup-title">{{ title }}</div>
+                <mat-divider class="mat-divider"></mat-divider>
+                <div class="hero-container-titlegroup-subtitle"><p>{{ subtitle }}</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="about">
+        <div class="about-container">
+            <app-about [bgcolor]="'white'"></app-about>
+        </div>
+    </div>
+    <div class="newsfeed">
+        <div class="newsfeed-container">
+            <div class="newsfeed-container-announcement">
+                <div class="newsfeed-container-announcement-title">OUT NOW:<br/>Vows of Blood and Honor</div>
+                <mat-divider class="mat-divider"></mat-divider>
+                <div class="newsfeed-container-announcement-date">{{announceDate}}</div>
+                <div class="newsfeed-container-announcement-body">{{announceBody}}</div>
+            </div>
+            <div class="newsfeed-container-image">
+                <img src="../../assets/photos/vows-of-blood-and-honor.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-container">
+            <app-progress></app-progress>
+        </div>
+    </div>
+    <div class="quote">
+        <div class="quote-container">
+            <div class="quote-container-quotegroup">
+                <div class="quote-container-quotegroup-quote">
+                    "Everyone, when they are young, knows what their Personal Legend is. At that point in their lives, everything is clear and everything is possible. They are not afraid to dream, and to yearn for everything they would like to see happen to them in their lives."</div>
+                <mat-divider class="mat-divider"></mat-divider>
+                <div class="quote-container-quotegroup-author">Paulo Coelho, The Alchemist</div>
+            </div>
+            <div class="quote-container-image">
+                <img src="../../assets/photos/library.png" alt="photo of library">
+            </div>
+        </div>
+    </div>
+</div>

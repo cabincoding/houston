@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="updates">
+        <div class="updates-container">
+            <div class="updates-container-title">UPDATES FROM THE AUTHOR</div>
+            <mat-divider class="mat-divider"></mat-divider>
+            <div class="updates-container-update" [ngClass]="{'odd': i % 2 !== 0, 'even': i % 2 === 0}" *ngFor="let post of posts; index as i;">
+                <div class="wrapper">
+                    <div class="updates-container-update-date">{{post.date}}</div>
+                    <div class="updates-container-update-subject">{{post.subject}}</div>
+                    <div class="updates-container-update-message" [innerHTML]="post.message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
