@@ -3,7 +3,42 @@
         <div class="progress-title">PROGRESS ON UPCOMING PROJECTS</div>
         <mat-divider class="mat-divider"></mat-divider>
         <div class="progress-projects">
-            <!-- insert project cards -->
+            <mat-card class="progress-projects-project" *ngFor="let project of projects">
+                <div class="progress-projects-project-details">
+                    <div class="progress-projects-project-details-title">{{project.title}}</div>
+                    <div class="progress-projects-project-details-series">{{project.series}}</div>
+                    <div class="progress-projects-project-details-releaseDate">{{project.releaseDate}}</div>
+                </div>
+                <div class="progress-projects-project-values">
+                    <div class="progress-projects-project-values-names">
+                        <div class="progress-projects-project-values-written-name">WRITTEN</div>
+                        <div class="progress-projects-project-values-rawEdit-name">RAW EDIT</div>
+                        <div class="progress-projects-project-values-finalEdit-name">FINAL EDIT</div>
+                    </div>
+                    <div class="progress-projects-project-values-bars">
+                        <div class="mat-progress-bar-written">
+                            <mat-progress-bar mode="determinate" value="{{project.written}}"></mat-progress-bar>
+                        </div>
+                        <div class="mat-progress-bar-rawEdit">
+                            <mat-progress-bar mode="determinate" value="{{project.rawEdit}}"></mat-progress-bar>
+                        </div>
+                        <div  class="mat-progress-bar-finalEdit">
+                            <mat-progress-bar mode="determinate" value="{{project.finalEdit}}"></mat-progress-bar>
+                        </div>
+                    </div>
+                    <div class="progress-projects-project-values-percentages">
+                        <div class="progress-projects-project-values-percentages-written">
+                            {{project.written}}%
+                        </div>
+                        <div class="progress-projects-project-values-percentages-rawEdit">
+                            {{project.rawEdit}}%
+                        </div>
+                        <div class="progress-projects-project-values-percentages-finalEdit">
+                            {{project.finalEdit}}%
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
         </div>
         <div class="progress-statement">The author is on track to release a new novel every January, May, and September, so please feel free to check for updates on each new novel's progress.</div>
    </div> 

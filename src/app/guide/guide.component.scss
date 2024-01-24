@@ -76,14 +76,19 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         height: 100%;
-        width: 100%;
+        max-width: 60rem;
         margin: 0 10rem;
 
         &-title {
             font-size: 2.5rem;
             color: white;
+            align-self: center;
+        }
+        
+        > .mat-divider {
+            align-self: center;
         }
 
         &-body {
@@ -110,7 +115,7 @@
         justify-content: center;
         align-items: center;
         height: 100%;
-        width: 100%;
+        max-width: 60rem;
         margin: 0 10rem;
 
         &-title {
@@ -149,7 +154,7 @@
         justify-content: center;
         align-items: center;
         height: 100%;
-        width: 100%;
+        max-width: 60rem;
         margin: 0 10rem;
 
         &-title {
@@ -181,7 +186,7 @@
         justify-content: center;
         align-items: center;
         height: 100%;
-        width: 100%;
+        max-width: 60rem;
         margin: 0 10rem;
 
         &-title {

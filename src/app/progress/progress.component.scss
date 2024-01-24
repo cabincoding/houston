@@ -20,10 +20,118 @@
         color: white;
     }
 
-    &-projects {
-        border: 1px dashed #393939;
-        height: 20rem;
+    .progress-projects {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 17.5rem;
         width: 100%;
+
+        &-project {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            width: 49%;            
+            height: 100%;
+            
+            &-details {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                &-title {
+                    font-size: 1.5rem;
+                    color: white;
+                }
+
+                &-series, &-releaseDate {
+                    font-size: 1rem;
+                    color: white;
+                    font-weight: 200;
+                }
+            }
+
+            &-values {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                margin-bottom: 1rem;
+                width: 100%;
+                height: 100%;
+                
+                &-names {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    text-align: center;
+                    flex-shrink: 0;
+                    height: 100%;
+                }
+
+                &-bars {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    height: 100%;
+                    max-width: 20rem;
+                    flex: 1;
+                    margin: 0 2rem;
+                    
+                    .mat-mdc-progress-bar {
+                        --mdc-linear-progress-active-indicator-height: 2rem;
+                        --mdc-linear-progress-track-height: 2rem;
+                        --mdc-linear-progress-track-shape: 0;
+                        border-radius: 1rem;
+                    }
+                    
+                    .mat-progress-bar-written {
+                        border-radius: 50%;
+                        width: 100%;
+                        
+                        .mat-mdc-progress-bar {
+                            --mdc-linear-progress-active-indicator-color: aqua;
+                            --mdc-linear-progress-track-color: #e2e2e2;         
+                        }
+                    } 
+
+                    .mat-progress-bar-rawEdit {
+                        width: 100%;
+                        
+                        .mat-mdc-progress-bar {
+                            --mdc-linear-progress-active-indicator-color: #00cc88;
+                            --mdc-linear-progress-track-color: #e2e2e2;         
+                        }
+                    }
+
+                    .mat-progress-bar-finalEdit {
+                        width: 100%;
+                        
+                        .mat-mdc-progress-bar {
+                            --mdc-linear-progress-active-indicator-color: #ffdd55;
+                            --mdc-linear-progress-track-color: #e2e2e2;         
+                        }
+                    }
+                }
+
+                &-percentages {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    text-align: center;
+                    flex-shrink: 0;
+                    height: 100%;
+                }
+            }
+        }
     }
 
     &-statement {

@@ -7,9 +7,20 @@
                 <div class="works-container-titlegroup-subtitle">Discover Your Next Read in the Elpeasia Universe</div>
             </div>
             <div class="works-container-collection">
-                <div class="work"></div>
-                <div class="work"></div>
-                <div class="work"></div>                
+                <div class="work" *ngFor="let work of works">
+                    <div class="work-photo">
+                        <img src="{{work.photo}}" alt="">
+                    </div>
+                    <div class="work-info">
+                        <div class="work-info-titlegroup">
+                            <div class="work-info-title">{{work.title}}</div>
+                            <mat-divider class="mat-divider"></mat-divider>
+                        </div>
+                        <div class="work-info-releaseDate">{{work.releaseDate}}</div>
+                        <div class="work-info-details" [innerHTML]="work.details"></div>
+                        <a class="work-info-link" href="{{work.link}}"><span *ngIf="work.link">Link:</span><br>{{work.link}}</a>
+                    </div>
+                </div>           
             </div>
         </div>
     </div>
