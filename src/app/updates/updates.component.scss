@@ -1,7 +1,13 @@
+@import "../_scss/mixins.scss";
+
 .mat-divider {
     width: 17.75rem;
     border: 1px solid white;
     margin: 0.75rem 0;
+
+    @include mobile {
+        width: 90%;
+    }
 }
 
 .container {
@@ -25,10 +31,21 @@
         align-items: center;
         padding: 8rem 0;
         width: 100%;
+
+        @include mobile {
+            padding: 3rem 0;
+        }
         
         &-title {
             font-size: 2.5rem;
             color: white;
+
+            @include mobile {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                text-align: center;
+                line-height: 2.5rem;
+            }
         }
         
         &-update {
@@ -42,6 +59,10 @@
             .wrapper {
                 margin: 0 10rem;
                 max-width: 80rem;
+
+                @include mobile {
+                    margin: 0 2rem;
+                }
             }
 
             &-date {

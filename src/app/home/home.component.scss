@@ -1,3 +1,5 @@
+@import '../_scss/mixins.scss';
+
 .mat-divider {
     width: 17.75rem;
     border: 1px solid white;
@@ -21,6 +23,11 @@
         width: auto;
         padding: 5rem;
 
+        @include mobile {
+            flex-direction: column;
+        }
+
+
         &-photo {
             display: flex;
             justify-content: center;
@@ -28,8 +35,15 @@
             height: 40rem;
             width: 100%;
 
+            @include mobile {
+                height: 36rem;
+            }
+
             > img {
                 height: 40rem;
+                @include mobile {
+                    height: 36rem;
+                }   
             }
         }
 
@@ -45,6 +59,11 @@
             &-title {
                 font-size: 4rem;
                 margin: 1rem;
+
+                @include mobile {
+                    font-size: 2rem;
+                    margin: 1rem 0 0.33rem 0;
+                }
             }
 
             &-subtitle {
@@ -72,6 +91,11 @@
         align-items: center;
         padding: 10rem;
 
+        @include mobile {
+            flex-direction: column;
+            padding: 1rem;
+        }
+
         &-announcement {
             display: flex;
             flex-direction: column;
@@ -82,9 +106,21 @@
             height: 100%;
             margin: 3rem;
 
+            @include mobile {
+                margin: 0 0 3rem 0;
+                width: 100%;
+                align-items: center;
+            }
+
             &-title {
                 font-size: 2.5rem;
                 line-height: 3rem;
+
+                @include mobile {
+                    font-size: 2rem;
+                    line-height: 2.5rem;
+                    text-align: center;
+                }
             }
 
             &-date {
@@ -96,6 +132,12 @@
             &-body {
                 height: 100%;
                 line-height: 1.75rem;
+
+                @include mobile {
+                    text-align: center;
+                    font-size: 1.25rem;
+                    font-weight: 200;
+                }
             }
         }
 
@@ -103,6 +145,11 @@
             width: 50%;
             height: 100%;
             margin: 3rem;
+            max-width: 30rem;
+
+            @include mobile {
+                width: 80%;
+            }
 
             > img {
                 width: 100%;
@@ -114,6 +161,10 @@
 .progress {
     padding: 5rem;
     background-color: white;
+
+    @include mobile {
+        padding: 0;
+    }
 }
 
 .quote {
@@ -126,6 +177,11 @@
         align-items: center;
         padding: 10rem;
 
+        @include mobile {
+            flex-direction: column-reverse;
+            padding: 0;
+        }
+
         &-quotegroup {
             display: flex;
             flex-direction: column;
@@ -133,6 +189,15 @@
             align-items: flex-start;
             width: 50%;
             margin: 2rem;
+
+            @include mobile {
+                width: 90%;
+                text-align: center;
+
+                > .mat-divider {
+                    align-self: center;
+                }
+            }
 
             &-quote {
                 line-height: 2rem;
@@ -145,12 +210,22 @@
                 font-style: italic;
                 font-weight: 300;
                 color: white;
+
+                @include mobile {
+                    align-self: center;
+                    font-size: 1.2rem;
+                }
             }
         }
 
         &-image {
             width: 50%;
             margin: 2rem;
+            max-width: 40rem;
+
+            @include mobile {
+                width: 90%;
+            }
 
             > img {
                 width: 100%;

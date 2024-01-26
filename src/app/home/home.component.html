@@ -22,7 +22,7 @@
                 <div class="newsfeed-container-announcement-title">OUT NOW:<br/>Vows of Blood and Honor</div>
                 <mat-divider class="mat-divider"></mat-divider>
                 <div class="newsfeed-container-announcement-date">{{announceDate}}</div>
-                <div class="newsfeed-container-announcement-body">{{announceBody}}</div>
+                <div class="newsfeed-container-announcement-body" [innerHTML]="announceBody"></div>
             </div>
             <div class="newsfeed-container-image">
                 <img src="../../assets/photos/Vows-of-Blood-and-Honor.png" alt="">

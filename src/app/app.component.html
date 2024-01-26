@@ -1,5 +1,38 @@
 <div class="app">
-    <app-toolbar></app-toolbar>
-    <router-outlet />
-    <app-footer></app-footer>
+
+    <app-toolbar *ngIf="isDesktop"></app-toolbar>
+    
+    
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav mode="over" position="start">
+            <div class="nav-button-container">
+                <button mat-button routerLink="/home">Home</button>
+                <mat-divider class="mat-divider"></mat-divider>
+                <button mat-button routerLink="/about">About</button>
+                <mat-divider class="mat-divider"></mat-divider>
+                <button mat-button routerLink="/works">Works</button>
+                <mat-divider class="mat-divider"></mat-divider>
+                <button mat-button routerLink="/guide">Guide</button>
+                <mat-divider class="mat-divider"></mat-divider>
+                <button mat-button routerLink="/updates">Updates</button>
+            </div>
+        </mat-sidenav>
+      
+        <mat-sidenav-content>
+        
+        <div class="button-container" *ngIf="!isDesktop">
+            <button mat-button routerLink="/home" class="logo">H.G. RANDOLPH</button>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="sidenav.toggle()" class="hamburger">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+      
+          <router-outlet></router-outlet>
+          <app-footer></app-footer>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+    <!-- <router-outlet></router-outlet> -->
 </div>
