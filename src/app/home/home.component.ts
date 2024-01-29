@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { AboutComponent } from '../about/about.component';
 import { MaterialModule } from '../material/material.module';
 import { ProgressComponent } from '../progress/progress.component';
+import { Observable, map } from 'rxjs';
+import { Author } from '../interfaces/author.interface';
+import { SharedService } from '../services/shared.service';
+import { CommonModule } from '@angular/common';
+import { Newsletter } from '../interfaces/newsletter.interface';
 
 @Component({
   selector: 'app-home',
@@ -10,23 +15,33 @@ import { ProgressComponent } from '../progress/progress.component';
     AboutComponent,
     MaterialModule,
     ProgressComponent,
+    CommonModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  author$!: Observable<Author | null>;
+  newsletters$!: Observable<Newsletter[] | null>;
   title!: string;
   subtitle!: string;
   announceTitle!: string;
   announceDate!: string;
   announceBody!: string;
 
+  constructor(
+    private sharedService: SharedService,
+  ) {
+    this.author$ = this.sharedService.getAuthor();
+    this.newsletters$ = this.sharedService.getNewsletter();
+  }
+
   ngOnInit() {
-    this.title = "H.G. Randolph"
-    this.subtitle = "Author"
-    this.announceTitle = "OUT NOW:<br>Vows of Blood and Honor"
-    this.announceDate = "September 4, 2023";
-    this.announceBody = "<br>Please check out the continuation of December\'s Journey in Book 2 of the Written in Stone series.<br><br>With her new nation established, December Evermore must leave the safety of the Frozen Winds to meet with the gods. Every country within the Nine Kingdoms of Ten is sending representatives to the Forsaken for the World Peace Summit. Despite only recently getting her bearings in this strange, magical era, the Snow Queen has to dive into the deep end of the realm\’s politics. All the while, skeptical eyes watch her every move, ready to judge her for prophecies which are out of her control.<br><br>Unfortunately, December isn\’t the only one with an agenda. Every other territory is seeking to improve their standing on the world stage. Facing bloody coups, vengeful foes, and hateful preconceptions, she has to fight for her home\’s right to exist. The Frozen Winds needs allies to survive, and December is ready to break every rule, even her own ethical standards, to keep her people safe."
+    this.newsletters$.subscribe({
+      next: newsletter => {
+        console.log({newsletter});
+      }
+    })
   }
 
 }

@@ -19,4 +19,14 @@ mat-toolbar {
     .spacer {
         flex-grow: 1;
     }
+
+    button {
+        transition: 0.5s;
+        &:hover {
+            color: white;
+            scale: 1.005;
+            transition: 0.5s;
+        }
+    }
+    
 }

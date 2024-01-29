@@ -21,7 +21,11 @@
         <mat-sidenav-content>
         
         <div class="button-container" *ngIf="!isDesktop">
-            <button mat-button routerLink="/home" class="logo">H.G. RANDOLPH</button>
+            <button 
+                mat-button 
+                routerLink="/home" 
+                class="logo"
+                *ngIf="(author$ | async) as author">{{author.name}}</button>
             <span class="spacer"></span>
             <button mat-icon-button (click)="sidenav.toggle()" class="hamburger">
                 <mat-icon>menu</mat-icon>

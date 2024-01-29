@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { MaterialModule } from '../material/material.module';
 import { CommonModule } from '@angular/common';
+import { SharedService } from '../services/shared.service';
+import { Observable } from 'rxjs';
+import { Author } from '../interfaces/author.interface';
 
 @Component({
   selector: 'app-about',
@@ -13,9 +16,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
+  author$!: Observable<Author | null>;
   @Input() bgcolor: string = '#191919';
   title!: string;
   body!: string;
+
+  constructor(
+    private sharedService: SharedService,
+  ) {
+    this.author$ = this.sharedService.getAuthor();
+  }
 
   ngOnInit() {
     this.title = "ABOUT H.G. RANDOLPH";

@@ -1,9 +1,9 @@
 <div class="container" [ngStyle]="{'background-color': bgcolor}">
     <div class="about">
-        <div class="about-container">
-            <div class="about-container-title">{{ title }}</div>
+        <div class="about-container" *ngIf="(author$ | async) as author">
+            <div class="about-container-title">ABOUT {{ author.name }}</div>
             <mat-divider class="mat-divider"></mat-divider>
-            <div class="about-container-body">{{ body }}</div>
+            <div class="about-container-body">{{ author.bio }}</div>
         </div>
     </div>
 </div>

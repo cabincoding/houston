@@ -6,19 +6,33 @@
                 <mat-divider class="mat-divider"></mat-divider>
                 <div class="works-container-titlegroup-subtitle">Discover Your Next Read in the Elpeasia Universe</div>
             </div>
-            <div class="works-container-collection">
+            <div class="works-container-collection" *ngIf="(works$ | async) as works">
                 <div class="work" *ngFor="let work of works">
                     <div class="work-photo">
-                        <img src="{{work.photo}}" alt="">
+                        <img src="{{work.photoUrl}}" alt="">
                     </div>
                     <div class="work-info">
                         <div class="work-info-titlegroup">
                             <div class="work-info-title">{{work.title}}</div>
                             <mat-divider class="mat-divider"></mat-divider>
                         </div>
-                        <div class="work-info-releaseDate">{{work.releaseDate}}</div>
-                        <div class="work-info-details" [innerHTML]="work.details"></div>
-                        <a class="work-info-link" href="{{work.link}}"><span *ngIf="work.link">Link:</span><br>{{work.link}}</a>
+                        <div class="work-info-releaseDate">{{work.releaseDate | date:'longDate'}}</div>
+
+                        <div class="work-info-details">
+                            Series Details:<br>{{work.details.series}}
+                            <ng-container *ngIf="work.details.series === 'Stand Alone'; else bookSeries">
+                                Novel in the Elpeasia Universe
+                            </ng-container>
+                            <ng-template #bookSeries>
+                                <span>Book {{work.details.serialNumber}}</span> in the Elpeasia Universe
+                            </ng-template>
+                        </div>
+                        <div class="work-spacer"></div>
+                        <div *ngFor="let link of work.affiliateLinks">
+                            <a *ngIf="link.link" class="work-info-link" href="{{link.link}}">
+                                <span>Link:</span> {{link.name}}
+                            </a>
+                        </div>
                     </div>
                 </div>           
             </div>

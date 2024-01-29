@@ -10,7 +10,7 @@
         <img src="../../assets/photos/elpeasia-map.webp" alt="Map of Elpeasia">
         <div class="map-caption">This guide will be updated periodically with new releases. There may be minor spoilers ahead. You have been warned.</div>
     </div>
-    <div class="characters">
+    <div class="characters" *ngIf="(characters$ | async) as characters">
         <div class="characters-container">
             <div class="characters-container-title">CHARACTERS</div>
             <mat-divider class="mat-divider"></mat-divider>
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div class="countries">
+    <div class="countries" *ngIf="(countries$ | async) as countries">
         <div class="countries-container">
             <div class="countries-container-title">COUNTRIES</div>
             <mat-divider class="mat-divider"></mat-divider>
@@ -31,30 +31,22 @@
             </div>
         </div>
     </div>
-    <div class="terminology">
+    <div class="terminology" *ngIf="(terminiology$ | async) as terminiologies">
         <div class="terminology-container">
             <div class="terminology-container-title">TERMINOLOY</div>
             <mat-divider class="mat-divider"></mat-divider>
             <div class="terminology-container-body" *ngFor="let term of terminiologies">
                 <div class="terminology-container-body-term">{{term.term}}</div>
-                <div class="terminology-container-body-description">{{term.description}}</div>
+                <div class="terminology-container-body-description">{{term.definition}}</div>
             </div>
         </div>
     </div>
-    <div class="rules-of-magic">
+    <div class="rules-of-magic" *ngIf="(magic$ | async) as magics">
         <div class="rules-of-magic-container">
             <div class="rules-of-magic-container-title">RULES OF MAGIC</div>
             <mat-divider class="mat-divider"></mat-divider>
-            <div class="rules-of-magic-container-body">
-                Magic is the process of converting physical stamina into sorcery. There are many different types of magic. Humanoid creatures can learn as many types of sorcery as they want, but that doesn’t mean that they have talent in every branch of enchantment. All humanoid creatures need tools to channel their energy. The only exceptions are people with the magic of the gods.
-                <br><br>
-                Each god can use one form of magic without a tool. To use other forms of sorcery, they needed enchanted jewelry or weapons. Many magical creatures have a form of magic that they can do naturally. Unlike the gods, these beasts are unable to use enchanted tools. Other people must cast the alternate magic for them.
-                <br><br>
-                The limit of magic depends on the user. There are many components to a user’s restrictions. A person’s genetics is a large contributing factor to how powerful their sorcery is. At the same time, the amount of willpower a person has greatly influences their strength. Those with strong magical genes and unbending determination are close to limitless in the magical world.
-                <br><br>
-​                Every form of sorcery has a weakness. Elemental magic will wither before its natural enemies. Unusual wizardry follows a strict set of rules that can’t be overcome. If a form of magic seems unstoppable, that’s because the weakness has yet to be discovered. In addition, every enchantment has a cost. While most sorcery merely drains the user of energy, other forms of magic could cost a person’s lifespan, sanity, or even the lives of others.
-                <br><br>
-                The evolution of sorcery started because of the Great Cataclysm. Radiation from the event altered the world, pushing magical energy into every living creature. Theoretically, any human who wasn’t exposed to the Great Cataclysm wouldn’t have experienced the change. As such, they would be incapable of using magic.
+            <div class="rules-of-magic-container-body" *ngFor="let magic of magics">
+                <div class="rules-of-magic-container-body-item">{{ magic.ruleDescription }}</div>
             </div>
         </div>
     </div>

@@ -2,12 +2,19 @@
    <div class="progress">
         <div class="progress-title">PROGRESS ON UPCOMING PROJECTS</div>
         <mat-divider class="mat-divider"></mat-divider>
-        <div class="progress-projects">
-            <mat-card class="progress-projects-project" *ngFor="let project of projects">
+        <div class="progress-projects" *ngIf="(works$ | async) as works">
+            <mat-card class="progress-projects-project" *ngFor="let work of works">
                 <div class="progress-projects-project-details">
-                    <div class="progress-projects-project-details-title">{{project.title}}</div>
-                    <div class="progress-projects-project-details-series">{{project.series}}</div>
-                    <div class="progress-projects-project-details-releaseDate">{{project.releaseDate}}</div>
+                    <div class="progress-projects-project-details-title">{{work.title}}</div>
+                    <div class="progress-projects-project-details-series">
+                        <ng-container *ngIf="work.details.series === 'Stand Alone'; else bookSeries">
+                            Stand Alone
+                        </ng-container>
+                        <ng-template #bookSeries>
+                            {{work.details.series}}<span> Book {{work.details.serialNumber}}</span>
+                        </ng-template>
+                    </div>
+                    <div class="progress-projects-project-details-releaseDate">{{work.releaseDate | date:'longDate'}}</div>
                 </div>
                 <div class="progress-projects-project-values">
                     <div class="progress-projects-project-values-names">
@@ -17,24 +24,24 @@
                     </div>
                     <div class="progress-projects-project-values-bars">
                         <div class="mat-progress-bar-written">
-                            <mat-progress-bar mode="determinate" value="{{project.written}}"></mat-progress-bar>
+                            <mat-progress-bar mode="determinate" value="{{work.details.written}}"></mat-progress-bar>
                         </div>
                         <div class="mat-progress-bar-rawEdit">
-                            <mat-progress-bar mode="determinate" value="{{project.rawEdit}}"></mat-progress-bar>
+                            <mat-progress-bar mode="determinate" value="{{work.details.rawEdit}}"></mat-progress-bar>
                         </div>
                         <div  class="mat-progress-bar-finalEdit">
-                            <mat-progress-bar mode="determinate" value="{{project.finalEdit}}"></mat-progress-bar>
+                            <mat-progress-bar mode="determinate" value="{{work.details.finalEdit}}"></mat-progress-bar>
                         </div>
                     </div>
                     <div class="progress-projects-project-values-percentages">
                         <div class="progress-projects-project-values-percentages-written">
-                            {{project.written}}%
+                            {{work.details.written}}%
                         </div>
                         <div class="progress-projects-project-values-percentages-rawEdit">
-                            {{project.rawEdit}}%
+                            {{work.details.rawEdit}}%
                         </div>
                         <div class="progress-projects-project-values-percentages-finalEdit">
-                            {{project.finalEdit}}%
+                            {{work.details.finalEdit}}%
                         </div>
                     </div>
                 </div>

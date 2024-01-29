@@ -4,6 +4,10 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from './material/material.module';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SharedService } from './services/shared.service';
+import { Author } from './interfaces/author.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,19 +19,25 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
     MaterialModule,
     CommonModule,
     RouterLink,
+    HttpClientModule,
   ],
+  providers: [SharedService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'houston';
+  author$: Observable<Author | null> = this.sharedService.getAuthor();
   isDesktop = true;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private sharedService: SharedService,
+    ) {
     if (isPlatformBrowser(this.platformId)) {
       this.checkScreenSize();
       window.onresize = () => this.checkScreenSize();
     }
+    
   }
 
   private checkScreenSize() {

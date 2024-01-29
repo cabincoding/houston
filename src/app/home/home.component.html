@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" *ngIf="(author$ | async) as author">
     <div class="hero">
         <div class="hero-container">
             <div class="hero-container-photo">
                 <img src="../../assets/photos/author.png" alt="image of handsome bearded author in blue suit">
             </div>
             <div class="hero-container-titlegroup">
-                <div class="hero-container-titlegroup-title">{{ title }}</div>
+                <div class="hero-container-titlegroup-title">{{ author.name }}</div>
                 <mat-divider class="mat-divider"></mat-divider>
                 <div class="hero-container-titlegroup-subtitle"><p>{{ subtitle }}</p></div>
             </div>
@@ -16,16 +16,16 @@
             <app-about [bgcolor]="'white'"></app-about>
         </div>
     </div>
-    <div class="newsfeed">
-        <div class="newsfeed-container">
+    <div class="newsfeed" *ngIf="(newsletters$ | async) as newsletters">
+        <div class="newsfeed-container" *ngFor="let newsletter of newsletters">
             <div class="newsfeed-container-announcement">
-                <div class="newsfeed-container-announcement-title">OUT NOW:<br/>Vows of Blood and Honor</div>
+                <div class="newsfeed-container-announcement-title" [innerHTML]="newsletter.title"></div>
                 <mat-divider class="mat-divider"></mat-divider>
-                <div class="newsfeed-container-announcement-date">{{announceDate}}</div>
-                <div class="newsfeed-container-announcement-body" [innerHTML]="announceBody"></div>
+                <div class="newsfeed-container-announcement-date">{{newsletter.date | date:"longDate"}}</div>
+                <div class="newsfeed-container-announcement-body" [innerHTML]="newsletter.body"></div>
             </div>
             <div class="newsfeed-container-image">
-                <img src="../../assets/photos/Vows-of-Blood-and-Honor.png" alt="">
+                <img src="{{ newsletter.photoUrl }}" alt="">
             </div>
         </div>
     </div>
@@ -38,12 +38,12 @@
         <div class="quote-container">
             <div class="quote-container-quotegroup">
                 <div class="quote-container-quotegroup-quote">
-                    "Everyone, when they are young, knows what their Personal Legend is. At that point in their lives, everything is clear and everything is possible. They are not afraid to dream, and to yearn for everything they would like to see happen to them in their lives."</div>
+                    "{{author.quote.quote}}"</div>
                 <mat-divider class="mat-divider"></mat-divider>
-                <div class="quote-container-quotegroup-author">Paulo Coelho, The Alchemist</div>
+                <div class="quote-container-quotegroup-author">{{author.quote.citation}}</div>
             </div>
             <div class="quote-container-image">
-                <img src="../../assets/photos/library.png" alt="photo of library">
+                <img src="{{author.quote.photoUrl}}" alt="photo of library">
             </div>
         </div>
     </div>
