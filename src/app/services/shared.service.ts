@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map, shareReplay } from 'rxjs';
+import { Observable, map, shareReplay } from 'rxjs';
 import { Author } from '../interfaces/author.interface';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Works } from '../interfaces/works.interface';
 import { Newsletter } from '../interfaces/newsletter.interface';
 import { Terminology } from '../interfaces/terminology.interface';
 import { Magic } from '../interfaces/magic.interface';
 import { Country } from '../interfaces/country.interface';
 import { Character } from '../interfaces/character.interface';
+import { Blog } from '../interfaces/blog.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class SharedService {
   countries$!: Observable<Country[] | null>;
   terminology$!: Observable<Terminology[] | null>;
   magic$!: Observable<Magic[] | null>;
+  blog$!: Observable<Blog[] | null>;
 
   constructor(private http: HttpClient) {
     this.author$ = this.http.get<Author[]>('http://localhost:3000/author').pipe(
@@ -42,6 +44,9 @@ export class SharedService {
       shareReplay(1)
     )
     this.magic$ = this.http.get<Magic[]>('http://localhost:3000/magic').pipe(
+      shareReplay(1)
+    )
+    this.blog$ = this.http.get<Blog[]>('http://localhost:3000/blog').pipe(
       shareReplay(1)
     )
   }
@@ -72,5 +77,9 @@ export class SharedService {
 
   getMagic(): Observable<Magic[] | null> {
     return this.magic$;
+  }
+
+  getBlog(): Observable<Blog[] | null> {
+    return this.blog$;
   }
 }
